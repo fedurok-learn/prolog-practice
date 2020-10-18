@@ -4,15 +4,9 @@ parent(john, jacob).
 parent(victor, john).
 parent(olga, loki).
 
-%% common_descendant(+X:atom, +Y:atom, -D:atom) is semidet. 
+%% desc(-X:atom, -D:atom) is semidet.
+desc(X, D) :- parent(X, D).
+desc(X, D) :- parent(X, XD), desc(XD, D).
 
-common_descendant(X, Y, D) :- 
-    X \== Y, common_descendant_(X, Y, D), !.
-
-common_descendant_(X, Y, D) :- X = Y, D = X.
-
-common_descendant_(X, Y, D) :- 
-    X = Y,
-    parent(X, XD), 
-    parent(Y, YD),
-    common_descendant(XD, YD, D).
+%% common_descendant(-X:atom, -Y:atom, -D:atom) is semidet.
+common_descendant(X, Y, CD) :- desc(X, CD), desc(Y, CD).
