@@ -15,7 +15,7 @@ shortest_path(A, B, R) :-
     min_list(Lst, R).
 
 %% path(+A:atom, +B:atom, +Visited:list, +Acc:int, -R:int) is nondet.
-%% @param A and B - first nodes
+%% @param A and B - nodes
 %% @param Visited - list of already visited nodes
 %% @param Acc - accumulator so that we could
 %% incorporate tail call recursion optimisation
