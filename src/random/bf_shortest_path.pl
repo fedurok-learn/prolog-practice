@@ -14,7 +14,7 @@ shortest_path(A, B, R) :-
     findall(X, path(A, B, [], 0, X), Lst),
     min_list(Lst, R).
 
-%% graph_path(+A:atom, +B:atom, +Visited:list, +Acc:int, -R:int) is nondet.
+%% path(+A:atom, +B:atom, +Visited:list, +Acc:int, -R:int) is nondet.
 %% @param A and B - first nodes
 %% @param Visited - list of already visited nodes
 %% @param Acc - accumulator so that we could
