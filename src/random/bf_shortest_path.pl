@@ -20,6 +20,7 @@ shortest_path(A, B, R) :-
 %% @param Acc - accumulator so that we could
 %% incorporate tail call recursion optimisation
 %% @param R - resulting path length
+%% distance of path between two nodes in directed graph
 path(A, A, _Visited, Acc, Acc).
 path(A, B, Visited, Acc, R) :-
     distance(A, C, AC),
